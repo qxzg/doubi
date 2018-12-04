@@ -7,7 +7,7 @@ export PATH
 #       Description: Python HTTP Server
 #       Version: 1.0.2
 #       Author: Toyo
-#       Blog: https://doub.io/wlzy-8/
+#       Blog: https://doubmirror.cf/wlzy-8/
 #=================================================
 
 sethttp(){

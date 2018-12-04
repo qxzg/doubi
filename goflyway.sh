@@ -7,7 +7,7 @@ export PATH
 #	Description: GoFlyway
 #	Version: 1.0.11
 #	Author: Toyo
-#	Blog: https://doub.io/goflyway-jc2/
+#	Blog: https://doubmirror.cf/goflyway-jc2/
 #=================================================
 
 sh_ver="1.0.11"
@@ -118,14 +118,14 @@ Download_goflyway(){
 }
 Service_goflyway(){
 	if [[ ${release} = "centos" ]]; then
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/service/goflyway_centos -O /etc/init.d/goflyway; then
+		if ! wget --no-check-certificate https://raw.githubusercontent.com/qxzg/doubi/master/service/goflyway_centos -O /etc/init.d/goflyway; then
 			echo -e "${Error} GoFlyway 服务管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/goflyway
 		chkconfig --add goflyway
 		chkconfig goflyway on
 	else
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/service/goflyway_debian -O /etc/init.d/goflyway; then
+		if ! wget --no-check-certificate https://raw.githubusercontent.com/qxzg/doubi/master/service/goflyway_debian -O /etc/init.d/goflyway; then
 			echo -e "${Error} GoFlyway 服务管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/goflyway
@@ -400,7 +400,7 @@ View_goflyway(){
 	echo -e " 协议\t: ${Green_font_prefix}${protocol^^}${Font_color_suffix}"
 	echo -e " 伪装\t: ${Green_font_prefix}${proxy_pass}${Font_color_suffix}"
 	echo -e "${link}"
-	echo -e "${Tip} 链接仅适用于Windows系统的 Goflyway Tools 客户端（https://doub.io/dbrj-11/）。"
+	echo -e "${Tip} 链接仅适用于Windows系统的 Goflyway Tools 客户端（https://doubmirror.cf/dbrj-11/）。"
 	echo && echo "————————————————"
 }
 urlsafe_base64(){
@@ -603,13 +603,13 @@ Set_iptables(){
 	fi
 }
 Update_Shell(){
-	sh_new_ver=$(wget --no-check-certificate -qO- -t1 -T3 "https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/goflyway.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
+	sh_new_ver=$(wget --no-check-certificate -qO- -t1 -T3 "https://raw.githubusercontent.com/qxzg/doubi/master/goflyway.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1) && sh_new_type="github"
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} 无法链接到 Github !" && exit 0
 	if [[ -e "/etc/init.d/goflyway" ]]; then
 		rm -rf /etc/init.d/goflyway
 		Service_goflyway
 	fi
-	wget -N --no-check-certificate "https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/goflyway.sh" && chmod +x goflyway.sh
+	wget -N --no-check-certificate "https://raw.githubusercontent.com/qxzg/doubi/master/goflyway.sh" && chmod +x goflyway.sh
 	echo -e "脚本已更新为最新版本[ ${sh_new_ver} ] !(注意：因为更新方式为直接覆盖当前运行的脚本，所以可能下面会提示一些报错，无视即可)" && exit 0
 }
 check_sys

@@ -18,7 +18,7 @@ var ipv6_proxy = function(){ return nowall_proxy(); };
  
 /*
  * Copyright (C) 2017-2018 Toyo
- * https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/other/pac.txt
+ * https://raw.githubusercontent.com/qxzg/doubi/master/other/pac.txt
  */
 
 var rules = [
